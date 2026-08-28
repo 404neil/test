@@ -40,6 +40,11 @@
 
   const errorMessage = document.getElementById('error-message');
 
+  window.addEventListener('error', (e) => {
+    errorMessage.textContent = `Something broke while loading the page: ${e.message}. Try reloading — if it keeps happening, check the browser console for details.`;
+    errorMessage.classList.remove('hidden');
+  });
+
   // ---- Helpers ----
   function showError(message) {
     errorMessage.textContent = message;
